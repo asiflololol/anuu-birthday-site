@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Happy Birthday Anuu!</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    html, body {
+      height: 100%;
+      font-family: 'Comic Sans MS', cursive;
+      background: url('background.png') no-repeat center center fixed;
+      background-size: cover;
+      overflow: hidden;
+    }
+    .main {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      height: 100%;
+      text-align: center;
+      color: #fff;
+      backdrop-filter: blur(5px);
+      padding: 20px;
+    }
+    h1 {
+      font-size: 3rem;
+      color: #ffeff7;
+      text-shadow: 2px 2px 6px #000000b3;
+    }
+    .start-btn, .reveal-btn {
+      margin-top: 30px;
+      padding: 15px 30px;
+      font-size: 1.2rem;
+      border: none;
+      border-radius: 20px;
+      background-color: #ff69b4;
+      color: white;
+      cursor: pointer;
+      transition: all 0.3s ease;
+    }
+    .start-btn:hover, .reveal-btn:hover {
+      background-color: #ff85c1;
+      transform: scale(1.05);
+    }
+    #birthdayPage, #messageBox {
+      display: none;
+    }
+    .message-text {
+      margin-top: 20px;
+      font-size: 1.6rem;
+      background: rgba(255, 255, 255, 0.95);
+      color: #d63384;
+      padding: 25px;
+      border-radius: 20px;
+      max-width: 600px;
+      box-shadow: 0 0 20px #ffb6c1;
+      text-align: center;
+    }
+    .couple {
+      margin-top: 20px;
+      max-width: 300px;
+      border-radius: 20px;
+      box-shadow: 0 0 10px white;
+    }
+  </style>
+</head>
+<body>
+  <audio id="bgMusic" preload="auto">
+    <source src="music.mp3" type="audio/mpeg">
+  </audio>
+
+  <div id="mainPage" class="main">
+    <h1>Hii Anuu 🐾</h1>
+    <p style="color:#fff; margin-top: 10px; font-size: 1.2rem; text-shadow: 1px 1px 3px #000">Click the button below only if you're ready for a surprise 🎁</p>
+    <button class="start-btn" onclick="showBirthdayPage()">Surprise Inside 💝</button>
+  </div>
+
+  <div id="birthdayPage" class="main">
+    <h1>🎉 Happy Birthday Anuu 🎉</h1>
+    <button class="reveal-btn" onclick="revealMessage()">🎁 Reveal Message 🎁</button>
+    <div id="messageBox">
+      <p class="message-text">
+        Dear Anuu, you make the world sweeter just by being in it 💖.<br><br>
+        You're my best friend and I hope your day is full of smiles, sparkles, and Hello Kitty hugs 🎀💫<br><br>
+        Always here for you 🤍
+      </p>
+      <img src="couple.png" class="couple" alt="Us together">
+    </div>
+  </div>
+
+  <script>
+    function showBirthdayPage() {
+      document.getElementById('mainPage').style.display = 'none';
+      document.getElementById('birthdayPage').style.display = 'flex';
+      setTimeout(() => {
+        const audio = document.getElementById('bgMusic');
+        audio.currentTime = 16;
+        audio.play().catch(() => {});
+      }, 500);
+    }
+
+    function revealMessage() {
+      document.getElementById('messageBox').style.display = 'block';
+    }
+  </script>
+</body>
+</html>
